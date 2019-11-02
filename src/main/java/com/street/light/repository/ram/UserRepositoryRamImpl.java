@@ -35,6 +35,6 @@ public class UserRepositoryRamImpl implements UserRepository {
 
     @Override
     public void delete(int id) {
-
+        users.remove(id);
     }
 }
