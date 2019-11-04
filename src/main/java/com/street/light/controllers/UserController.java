@@ -38,8 +38,14 @@ public class UserController {
     //@DeleteMapping("/{id}")
     public String delite(@PathVariable("id") int id){
         userService.delete(id);
-        return "OK";
+        return "Deleted";
     }
 
-
+    @PutMapping("/{id}")
+    public String update(@PathVariable("id") int id,@RequestBody UserDto userDto){
+        User model = userMapper.model(userDto);
+        User user = userService.create(model);
+        userService.update(id,user);
+        return "Upated";
+    }
 }
