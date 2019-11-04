@@ -6,6 +6,8 @@ import com.street.light.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UserServiceImpl implements UserService {
 
@@ -34,5 +36,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(int id) {
         userRepository.delete(id);
+    }
+
+    public List<User> list(){
+        return userRepository.list();
     }
 }

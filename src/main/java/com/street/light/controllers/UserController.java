@@ -3,10 +3,14 @@ package com.street.light.controllers;
 import com.street.light.dto.UserDto;
 import com.street.light.mapper.UserMapper;
 import com.street.light.model.User;
+import com.street.light.repository.UserRepository;
 import com.street.light.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("users")
@@ -46,6 +50,12 @@ public class UserController {
         User model = userMapper.model(userDto);
         User user = userService.create(model);
         userService.update(id,user);
-        return "Upated";
+        return "Updated";
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> getList(@RequestParam(value = "list") String list){
+        List<User> listUser = userService.list();
+        return listUser;
     }
 }

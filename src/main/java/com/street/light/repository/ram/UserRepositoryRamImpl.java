@@ -4,8 +4,7 @@ import com.street.light.model.User;
 import com.street.light.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
@@ -38,5 +37,16 @@ public class UserRepositoryRamImpl implements UserRepository {
     @Override
     public void delete(int id) {
         users.remove(id);
+    }
+
+    public List<User> list(){
+        List<User> list = new ArrayList<>();
+        Iterator<Map.Entry<Integer, User>> iterator = users.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<Integer, User> pair = iterator.next();
+            User value = pair.getValue();
+            list.add(value);
+        }
+        return list;
     }
 }
