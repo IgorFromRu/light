@@ -30,7 +30,9 @@ public class UserRepositoryRamImpl implements UserRepository {
 
     @Override
     public User update(int id, User user) {
-        return users.put(id,user);
+        users.put(id,user);
+        users.get(id).setId(id);
+        return users.get(id);
     }
 
     @Override
