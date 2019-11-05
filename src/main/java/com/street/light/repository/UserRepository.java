@@ -11,7 +11,7 @@ public interface UserRepository {
 
     User getById(int id);
 
-    User update(int id, UserDto userDto);
+    User update(int id, User user);
 
     void delete(int id);
 

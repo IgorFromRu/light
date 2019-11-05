@@ -31,11 +31,11 @@ public class UserRepositoryRamImpl implements UserRepository {
     }
 
     @Override
-    public User update(int id, UserDto userDto) {
+    public User update(int id, User user) {
         User userUpdate = getById(id);
-        if (userDto.getFirstName()!=null) userUpdate.setFirstName(userDto.getFirstName());
-        if (userDto.getLastName()!=null) userUpdate.setLastName(userDto.getLastName());
-        if (userDto.getAge()!=null) userUpdate.setAge(userDto.getAge());
+        if (user.getFirstName()!=null) userUpdate.setFirstName(user.getFirstName());
+        if (user.getLastName()!=null) userUpdate.setLastName(user.getLastName());
+        if (user.getAge()!=null) userUpdate.setAge(user.getAge());
         return userUpdate;
     }
 
@@ -46,11 +46,8 @@ public class UserRepositoryRamImpl implements UserRepository {
 
     public List<User> list(){
         List<User> list = new ArrayList<>();
-        Iterator<Map.Entry<Integer, User>> iterator = users.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry<Integer, User> pair = iterator.next();
-            User value = pair.getValue();
-            list.add(value);
+        for(Map.Entry<Integer,User> map : users.entrySet()){
+            list.add(map.getValue());
         }
         return list;
     }

@@ -3,7 +3,6 @@ package com.street.light.controllers;
 import com.street.light.dto.UserDto;
 import com.street.light.mapper.UserMapper;
 import com.street.light.model.User;
-import com.street.light.repository.UserRepository;
 import com.street.light.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,14 +46,19 @@ public class UserController {
 
     @PutMapping("/{id}")
     public String update(@PathVariable("id") int id,@RequestBody UserDto userDto){
-        userService.update(id,userDto);
+        User userUpdate = userMapper.model(userDto);
+        userService.update(id,userUpdate);
         return "Updated";
     }
 
     @GetMapping("/users")
     @RequestMapping(method = RequestMethod.GET)
-    public List<User> list(){
+    public List<UserDto> list(){
         List<User> listUser = userService.list();
-        return listUser;
+        List<UserDto> list = new ArrayList<>();
+        for (User u : listUser) {
+            list.add(userMapper.dto(u));
+        }
+        return list;
     }
 }
