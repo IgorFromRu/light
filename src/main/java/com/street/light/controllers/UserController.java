@@ -47,15 +47,17 @@ public class UserController {
 
     @PutMapping("/{id}")
     public String update(@PathVariable("id") int id,@RequestBody UserDto userDto){
-        User model = userMapper.model(userDto);
-        User user = userService.create(model);
-        userService.update(id,user);
+        userService.update(id,userDto);
         return "Updated";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<User> getList(@RequestParam(value = "list") String list){
+    @GetMapping("users")
+    public List<UserDto> list(){
         List<User> listUser = userService.list();
-        return listUser;
+        List<UserDto> list = new ArrayList<>();
+        for (User u : listUser ) {
+            list.add(userMapper.dto(u));
+        }
+        return list;
     }
 }

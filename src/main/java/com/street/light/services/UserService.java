@@ -1,5 +1,6 @@
 package com.street.light.services;
 
+import com.street.light.dto.UserDto;
 import com.street.light.model.User;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface UserService {
 
     User getById(int id);
 
-    User update(int id, User user);
+    User update(int id, UserDto userDto);
 
     void delete(int id);
 

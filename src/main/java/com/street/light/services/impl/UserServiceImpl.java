@@ -1,5 +1,6 @@
 package com.street.light.services.impl;
 
+import com.street.light.dto.UserDto;
 import com.street.light.model.User;
 import com.street.light.repository.UserRepository;
 import com.street.light.services.UserService;
@@ -29,8 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(int id, User user) {
-        return userRepository.update(id, user);
+    public User update(int id, UserDto userDto) {
+        return userRepository.update(id, userDto);
     }
 
     @Override
