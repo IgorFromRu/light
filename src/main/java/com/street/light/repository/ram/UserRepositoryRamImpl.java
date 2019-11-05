@@ -32,20 +32,10 @@ public class UserRepositoryRamImpl implements UserRepository {
 
     @Override
     public User update(int id, UserDto userDto) {
-        User userUpdate = new User();
-        if (getById(id) == null) throw new NullPointerException("User not found");
-
+        User userUpdate = getById(id);
         if (userDto.getFirstName()!=null) userUpdate.setFirstName(userDto.getFirstName());
-        else userUpdate.setFirstName(users.get(id).getFirstName());
-
         if (userDto.getLastName()!=null) userUpdate.setLastName(userDto.getLastName());
-        else userUpdate.setLastName(users.get(id).getLastName());
-
         if (userDto.getAge()!=null) userUpdate.setAge(userDto.getAge());
-        else userUpdate.setAge(users.get(id).getAge());
-
-        userUpdate.setId(id);
-        users.put(id,userUpdate);
         return userUpdate;
     }
 
