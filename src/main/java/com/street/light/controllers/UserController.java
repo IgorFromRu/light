@@ -51,13 +51,10 @@ public class UserController {
         return "Updated";
     }
 
-    @GetMapping("users")
-    public List<UserDto> list(){
+    @GetMapping("/users")
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> list(){
         List<User> listUser = userService.list();
-        List<UserDto> list = new ArrayList<>();
-        for (User u : listUser ) {
-            list.add(userMapper.dto(u));
-        }
-        return list;
+        return listUser;
     }
 }
