@@ -54,7 +54,7 @@ public class UserController {
     @GetMapping("/users")
     @RequestMapping(method = RequestMethod.GET)
     public List<UserDto> list(){
-        List<User> listUser = userService.list();
+        List<User> listUser = userService.findAll();
         List<UserDto> list = new ArrayList<>();
         for (User u : listUser) {
             list.add(userMapper.dto(u));

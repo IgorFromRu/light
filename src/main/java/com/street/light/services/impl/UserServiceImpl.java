@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(id);
     }
 
-    public List<User> list(){
-        return userRepository.list();
+    public List<User> findAll(){
+        return userRepository.findAll();
     }
 }

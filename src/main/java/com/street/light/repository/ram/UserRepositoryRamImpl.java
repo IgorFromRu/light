@@ -44,7 +44,7 @@ public class UserRepositoryRamImpl implements UserRepository {
         users.remove(id);
     }
 
-    public List<User> list(){
+    public List<User> findAll(){
         List<User> list = new ArrayList<>();
         for(Map.Entry<Integer,User> map : users.entrySet()){
             list.add(map.getValue());

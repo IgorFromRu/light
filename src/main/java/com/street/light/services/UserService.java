@@ -13,5 +13,5 @@ public interface UserService {
 
     void delete(int id);
 
-    List<User> list();
+    List<User> findAll();
 }
