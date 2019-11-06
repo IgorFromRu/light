@@ -21,16 +21,16 @@ public class MessageController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageDto create(@RequestBody MessageDto messageDto){
-        Message messageModel = messageMapper.MessegeModel(messageDto);
+        Message messageModel = messageMapper.messageModel(messageDto);
         Message message = messageService.create(messageModel);
-        return messageMapper.MessegeDto(message);
+        return messageMapper.messageDto(message);
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public MessageDto getById(@PathVariable("id") int id){
         Message message = messageService.getById(id);
-        MessageDto messageDto = messageMapper.MessegeDto(message);
+        MessageDto messageDto = messageMapper.messageDto(message);
         return messageDto;
     }
 

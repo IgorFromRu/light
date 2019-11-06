@@ -1,15 +1,23 @@
 package com.street.light.model;
 
+import com.street.light.dto.UserDto;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Message {
     int id;
+
     LocalDateTime createTime;
+
     String text;
+
     User user;
+
     Message parent;
+
     List<Message> messages;
+
 
     public int getId() {
         return id;
@@ -39,8 +47,11 @@ public class Message {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserDto user) {
+        this.user.setId(user.getId());
+        this.user.setFirstName(user.getFirstName());
+        this.user.setLastName(user.getFirstName());
+        this.user.setAge(user.getAge());
     }
 
     public Message getParent() {

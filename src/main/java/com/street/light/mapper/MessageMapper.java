@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageMapper {
 
-    public MessageDto MessegeDto(Message message){
+    public MessageDto messageDto(Message message){
         MessageDto messageDto = new MessageDto();
         messageDto.setId(message.getId());
         messageDto.setCreateTime(message.getCreateTime());
@@ -18,13 +18,13 @@ public class MessageMapper {
         return messageDto;
     }
 
-    public Message MessegeModel(MessageDto messageDto){
+    public Message messageModel(MessageDto messageDto){
         Message message = new Message();
         message.setId(messageDto.getId());
         message.setCreateTime(messageDto.getCreateTime());
         message.setText(messageDto.getText());
         message.setUser(messageDto.getUser());
-        message.setParent(messageDto.getParent());
+        message.setParent(message.getParent());
         message.setMessages(messageDto.getMessages());
         return message;
     }

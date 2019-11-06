@@ -8,11 +8,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class MessageDto {
+
     int id;
+
     LocalDateTime createTime;
+
     String text;
-    User user;
-    Message parent;
+
+    UserDto user;
+
+    MessageDto parent;
+
     List<Message> messages;
 
     public int getId() {
@@ -39,19 +45,22 @@ public class MessageDto {
         this.text = text;
     }
 
-    public User getUser() {
+    public UserDto getUser() {
         return user;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.user.setId(user.getId());
+        this.user.setFirstName(user.getFirstName());
+        this.user.setLastName(user.getFirstName());
+        this.user.setAge(user.getAge());
     }
 
-    public Message getParent() {
+    public MessageDto getParent() {
         return parent;
     }
 
-    public void setParent(Message parent) {
+    public void setParent(MessageDto parent) {
         this.parent = parent;
     }
 
@@ -62,4 +71,6 @@ public class MessageDto {
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+
+
 }
