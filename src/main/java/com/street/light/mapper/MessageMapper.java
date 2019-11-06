@@ -2,9 +2,7 @@ package com.street.light.mapper;
 
 import com.street.light.dto.MessageDto;
 import com.street.light.model.Message;
-import org.springframework.stereotype.Component;
 
-@Component
 public class MessageMapper {
 
     public MessageDto messageDto(Message message){
