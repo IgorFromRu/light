@@ -1,4 +1,8 @@
 package com.street.light.repository.ram;
 
-public class MessageRepositoryRamImpl {
+import com.street.light.repository.MessageRepisitory;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MessageRepositoryRamImpl implements MessageRepisitory {
 }

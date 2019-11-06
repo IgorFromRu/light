@@ -1,14 +1,19 @@
 package com.street.light.dto;
 
 
+import com.street.light.model.Message;
+import com.street.light.model.User;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class MessageDto {
     int id;
     LocalDateTime createTime;
     String text;
-    int userId;
-    int messageId;
+    User user;
+    Message parent;
+    List<Message> messages;
 
     public int getId() {
         return id;
@@ -34,19 +39,27 @@ public class MessageDto {
         this.text = text;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getMessageId() {
-        return messageId;
+    public Message getParent() {
+        return parent;
     }
 
-    public void setMessageId(int messageId) {
-        this.messageId = messageId;
+    public void setParent(Message parent) {
+        this.parent = parent;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }
