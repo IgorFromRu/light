@@ -16,4 +16,13 @@ public class MessageServiceImpl implements MessageService {
     public Message create(Message message) {
         return messageRepository.create(message);
     }
+
+    @Override
+    public Message getById(int id) {
+        Message message = messageRepository.getById(id);
+        if(message == null) {
+            throw new IllegalArgumentException("user not found, id=" + id);
+        }
+        return message;
+    }
 }

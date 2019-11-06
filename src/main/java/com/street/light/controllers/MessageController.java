@@ -26,6 +26,12 @@ public class MessageController {
         return messageMapper.MessegeDto(message);
     }
 
-
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public MessageDto getById(@PathVariable("id") int id){
+        Message message = messageService.getById(id);
+        MessageDto messageDto = messageMapper.MessegeDto(message);
+        return messageDto;
+    }
 
 }

@@ -11,4 +11,9 @@ public class MessageRepositoryRamImpl implements MessageRepository {
     public Message create(Message message) {
         return null;
     }
+
+    @Override
+    public Message getById(int id) {
+        return null;
+    }
 }
