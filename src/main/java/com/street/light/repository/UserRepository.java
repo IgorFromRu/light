@@ -1,6 +1,5 @@
 package com.street.light.repository;
 
-import com.street.light.dto.UserDto;
 import com.street.light.model.User;
 
 import java.util.List;
