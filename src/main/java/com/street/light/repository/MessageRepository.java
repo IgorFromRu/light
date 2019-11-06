@@ -1,8 +1,8 @@
-package com.street.light.services;
-
+package com.street.light.repository;
 
 import com.street.light.model.Message;
 
-public interface MessageService {
+public interface MessageRepository {
+
     Message create(Message message);
 }

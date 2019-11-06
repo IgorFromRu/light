@@ -1,6 +1,7 @@
 package com.street.light.services.impl;
 
-import com.street.light.repository.MessageRepisitory;
+import com.street.light.model.Message;
+import com.street.light.repository.MessageRepository;
 import com.street.light.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,5 +10,10 @@ import org.springframework.stereotype.Component;
 public class MessageServiceImpl implements MessageService {
 
     @Autowired
-    private MessageRepisitory messageRepisitory;
+    private MessageRepository messageRepository;
+
+    @Override
+    public Message create(Message message) {
+        return messageRepository.create(message);
+    }
 }
