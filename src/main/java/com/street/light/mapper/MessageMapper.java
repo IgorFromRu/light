@@ -9,9 +9,12 @@ import java.util.List;
 
 @Component
 public class MessageMapper {
+
     UserMapper userMapper = new UserMapper();
+
     public MessageDto messageDto(Message message){
         MessageDto messageDto = new MessageDto();
+        messageDto.setId(message.getId());
         messageDto.setCreateTime(message.getCreateTime());
         messageDto.setText(message.getText());
         List<MessageDto> listDto = new ArrayList<>();
@@ -32,6 +35,7 @@ public class MessageMapper {
 
     public Message messageModel(MessageDto messageDto){
         Message message = new Message();
+        message.setId(messageDto.getId());
         message.setCreateTime(messageDto.getCreateTime());
         message.setText(messageDto.getText());
         List<Message> list = new ArrayList<>();
