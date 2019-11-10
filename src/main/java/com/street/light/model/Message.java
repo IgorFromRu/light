@@ -47,11 +47,8 @@ public class Message {
         return user;
     }
 
-    public void setUser(UserDto user) {
-        this.user.setId(user.getId());
-        this.user.setFirstName(user.getFirstName());
-        this.user.setLastName(user.getFirstName());
-        this.user.setAge(user.getAge());
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Message getParent() {

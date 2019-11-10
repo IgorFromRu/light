@@ -1,8 +1,8 @@
 package com.street.light.dto;
 
 
-import com.street.light.model.Message;
-import com.street.light.model.User;
+import org.apache.catalina.User;
+import sun.plugin2.message.Message;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,7 +19,7 @@ public class MessageDto {
 
     MessageDto parent;
 
-    List<Message> messages;
+    List<MessageDto> messages;
 
     public int getId() {
         return id;
@@ -49,11 +49,8 @@ public class MessageDto {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user.setId(user.getId());
-        this.user.setFirstName(user.getFirstName());
-        this.user.setLastName(user.getFirstName());
-        this.user.setAge(user.getAge());
+    public void setUser(UserDto user) {
+        this.user = user;
     }
 
     public MessageDto getParent() {
@@ -64,13 +61,11 @@ public class MessageDto {
         this.parent = parent;
     }
 
-    public List<Message> getMessages() {
+    public List<MessageDto> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<Message> messages) {
+    public void setMessages(List<MessageDto> messages) {
         this.messages = messages;
     }
-
-
 }
