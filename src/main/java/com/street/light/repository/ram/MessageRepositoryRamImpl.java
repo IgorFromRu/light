@@ -35,7 +35,7 @@ public class MessageRepositoryRamImpl implements MessageRepository {
             Message messageParent = messagesMap.get(message.getParent().getId());
             messageParent.getMessages().add(message);
         }
-        messagesMap.put(messageId,message);
+        messagesMap.put(messageId,messageNew);
         return messageNew;
     }
 

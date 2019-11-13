@@ -2,6 +2,7 @@ package com.street.light.mapper;
 
 import com.street.light.dto.MessageDto;
 import com.street.light.model.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,16 +14,16 @@ public class MessageMapper {
     UserMapper userMapper = new UserMapper();
 
     public MessageDto messageDto(Message message){
+
         MessageDto messageDto = new MessageDto();
         messageDto.setId(message.getId());
         messageDto.setCreateTime(message.getCreateTime());
         messageDto.setText(message.getText());
         List<MessageDto> listDto = new ArrayList<>();
-        messageDto.setId(message.getId());
         messageDto.setCreateTime(message.getCreateTime());
         messageDto.setText(message.getText());
         messageDto.setUser(userMapper.dto(message.getUser()));
-        if (message.getParent()!= null && !(message.getParent().equals(message.getUser()))){
+        if (message.getParent()!= null && message.getParent() != message){
             messageDto.setParent(messageDto(message.getParent()));
         }
         else messageDto.setParent(null);
@@ -39,11 +40,10 @@ public class MessageMapper {
         message.setCreateTime(messageDto.getCreateTime());
         message.setText(messageDto.getText());
         List<Message> list = new ArrayList<>();
-        message.setId(messageDto.getId());
         message.setCreateTime(messageDto.getCreateTime());
         message.setText(messageDto.getText());
         message.setUser(userMapper.model(messageDto.getUser()));
-        if (messageDto.getParent()!= null && !(messageDto.getParent().equals(messageDto.getUser()))){
+        if (messageDto.getParent()!= null && messageDto.getParent() != messageDto){
             message.setParent(messageModel(messageDto.getParent()));
         }
         else message.setParent(null);

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
+
     public UserDto dto(User user){
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
@@ -14,6 +15,7 @@ public class UserMapper {
         userDto.setAge(user.getAge());
         return userDto;
     }
+
     public User model(UserDto userDto){
         User user = new User();
         user.setId(userDto.getId());
