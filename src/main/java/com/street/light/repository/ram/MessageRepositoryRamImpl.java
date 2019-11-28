@@ -23,8 +23,10 @@ public class MessageRepositoryRamImpl implements MessageRepository {
 
     @Override
     public Message create(Message message) {
+
         Message messageNew = new Message();
         int messageId = idGenerator.incrementAndGet();
+
         messageNew.setId(messageId);
         messageNew.setCreateTime(LocalDateTime.of(LocalDate.now(), LocalTime.now()));
         messageNew.setText(message.getText());

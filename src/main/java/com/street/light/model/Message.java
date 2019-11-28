@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Message {
+
     int id;
 
     LocalDateTime createTime;
