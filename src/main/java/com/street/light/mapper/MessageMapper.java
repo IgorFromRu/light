@@ -1,7 +1,10 @@
 package com.street.light.mapper;
 
+import com.street.light.controllers.UserController;
 import com.street.light.dto.MessageDto;
+import com.street.light.dto.UserDto;
 import com.street.light.model.Message;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -59,25 +62,29 @@ public class MessageMapper {
         return message;
     }
 
-    public MessageDto parentDto(Message parent){
+    public MessageDto parentDto(Message message){
+
         MessageDto messageDto = new MessageDto();
 
-        messageDto.setId(parent.getId());
-        messageDto.setCreateTime(parent.getCreateTime());
-        messageDto.setText(parent.getText());
-        messageDto.setUser(userMapper.dto(parent.getUser()));
+        messageDto.setId(message.getId());
+        messageDto.setCreateTime(message.getCreateTime());
+        messageDto.setText(message.getText());
+        if (message.getUser() != null){
+            messageDto.setUser(userMapper.dto(message.getUser()));
+        }
         return messageDto;
     }
 
-    public Message parentModel(MessageDto parentDto){
+    public Message parentModel(MessageDto messageDto){
 
         Message message = new Message();
 
-        message.setId(parentDto.getId());
-        message.setCreateTime(parentDto.getCreateTime());
-        message.setText(parentDto.getText());
-        message.setUser(userMapper.model(parentDto.getUser()));
-
+        message.setId(messageDto.getId());
+        message.setCreateTime(messageDto.getCreateTime());
+        message.setText(messageDto.getText());
+        if (messageDto.getUser() != null){
+            message.setUser(userMapper.model(messageDto.getUser()));
+        }
         return message;
     }
 }

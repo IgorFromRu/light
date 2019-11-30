@@ -3,6 +3,7 @@ package com.street.light.repository.ram;
 import com.street.light.model.Message;
 import com.street.light.model.User;
 import com.street.light.repository.MessageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
