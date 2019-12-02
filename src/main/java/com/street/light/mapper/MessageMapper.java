@@ -67,11 +67,6 @@ public class MessageMapper {
         MessageDto messageDto = new MessageDto();
 
         messageDto.setId(message.getId());
-        messageDto.setCreateTime(message.getCreateTime());
-        messageDto.setText(message.getText());
-        if (message.getUser() != null){
-            messageDto.setUser(userMapper.dto(message.getUser()));
-        }
         return messageDto;
     }
 
@@ -80,11 +75,6 @@ public class MessageMapper {
         Message message = new Message();
 
         message.setId(messageDto.getId());
-        message.setCreateTime(messageDto.getCreateTime());
-        message.setText(messageDto.getText());
-        if (messageDto.getUser() != null){
-            message.setUser(userMapper.model(messageDto.getUser()));
-        }
         return message;
     }
 }
